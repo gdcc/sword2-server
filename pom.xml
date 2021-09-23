@@ -19,6 +19,7 @@
         <skipAnalysis>false</skipAnalysis>
         <!-- Key 2DFF887456235B4550B857DFBAFC446FC031F36B for Dataverse Bot <dataversebot@gdcc.io> expiring 2024-07-29 -->
         <gpg.keyname>0xC031F36B</gpg.keyname>
+        <jdk.version>11</jdk.version>
         
         <!-- Dependency versions -->
         <servlet-api.version>4.0.4</servlet-api.version>
@@ -132,8 +133,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>11</source>
-                    <target>11</target>
+                    <release>${jdk.version}</release>
                 </configuration>
             </plugin>
             <plugin>
@@ -151,7 +151,7 @@
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>4.2.0</version>
+                <version>4.2.2</version>
                 <configuration>
                     <skip>${skipAnalysis}</skip>
                 </configuration>
