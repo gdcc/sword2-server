@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter
+    xmlns="https://github.com/spotbugs/filter/3.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://github.com/spotbugs/filter/3.0.0 https://raw.githubusercontent.com/spotbugs/spotbugs/3.1.0/spotbugs/etc/findbugsfilter.xsd">
+    
+    <!-- Disable errors
+     EI_EXPOSE_REP (https://spotbugs.readthedocs.io/en/stable/bugDescriptions.html#ei-may-expose-internal-representation-by-returning-reference-to-mutable-object-ei-expose-rep)
+     EI_EXPOSE_REP2 (https://spotbugs.readthedocs.io/en/stable/bugDescriptions.html#ei2-may-expose-internal-representation-by-incorporating-reference-to-mutable-object-ei-expose-rep2)
+     as it's not a simple code change to make the objects immutable.
+     
+     Also, as this nags on methods and objects from interfaces and this will be user provided code anyway, it doesn't
+     make much sense to enforce immutables objects here.
+    -->
+    <Match>
+        <Bug code="EI,EI2" />
+    </Match>
+    
+    <!-- ignore all bugs in test classes, except for those bugs specifically relating to JUnit tests -->
+    <!-- i.e. filter bug if ( classIsJUnitTest && ! bugIsRelatedToJUnit ) -->
+    <Match>
+        <!-- the Match filter is equivalent to a logical 'And' -->
+        
+        <Class name="~.*\.*Test" />
+        <!-- test classes are suffixed by 'Test' -->
+        
+        <Not>
+            <Bug code="IJU" /> <!-- 'IJU' is the code for bugs related to JUnit test code -->
+        </Not>
+    </Match>
+</FindBugsFilter>

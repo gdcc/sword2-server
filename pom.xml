@@ -154,6 +154,7 @@
                 <version>4.4.1</version>
                 <configuration>
                     <skip>${skipAnalysis}</skip>
+                    <excludeFilterFile>spotbugsExcludeFilter.xml</excludeFilterFile>
                 </configuration>
                 <executions>
                     <execution>
