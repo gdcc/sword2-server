@@ -6,11 +6,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - id: install-secret-key
-              name: Install gpg secret key
-              run: |
-                    cat <(echo -e "${{ secrets.DATAVERSEBOT_GPG_KEY }}") | gpg --batch --import
-                    gpg --list-secret-keys --keyid-format LONG
             - name: Set up Maven Central Repository
               uses: actions/setup-java@v2
               with:
@@ -27,6 +22,10 @@ jobs:
                   path: ~/.m2
                   key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
                   restore-keys: ${{ runner.os }}-m2
+            - id: install-secret-key
+              name: Install gpg secret key
+              run: |
+                   gpg --list-secret-keys --keyid-format LONG
             - name: Build, test, verify
               run: mvn -B verify
             #- name: Check POM metadata for release
