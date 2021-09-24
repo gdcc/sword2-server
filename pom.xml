@@ -412,6 +412,7 @@
                             <failBuildOnCVSS>7</failBuildOnCVSS>
                             <skipProvidedScope>true</skipProvidedScope>
                             <skipRuntimeScope>true</skipRuntimeScope>
+                            <suppressionFile>owaspSuppression.xml</suppressionFile>
                         </configuration>
                         <executions>
                             <execution>
