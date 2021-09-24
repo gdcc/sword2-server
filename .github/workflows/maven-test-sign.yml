@@ -4,6 +4,10 @@ on:
 jobs:
     publish:
         runs-on: ubuntu-latest
+        env:
+            MAVEN_USERNAME: ${{ secrets.DATAVERSEBOT_SONATYPE_USERNAME }}
+            MAVEN_PASSWORD: ${{ secrets.DATAVERSEBOT_SONATYPE_TOKEN }}
+            MAVEN_GPG_PASSPHRASE: ${{ secrets.DATAVERSEBOT_GPG_PASSWORD }}
         steps:
             - uses: actions/checkout@v2
             - name: Set up Maven Central Repository
@@ -32,7 +36,3 @@ jobs:
             #  run: mvn pomchecker:check-maven-central
             - name: Sign release
               run: mvn -Prelease verify -DskipAnalysis -DskipUT -DskipIT
-              env:
-                  MAVEN_USERNAME: ${{ secrets.DATAVERSEBOT_SONATYPE_USERNAME }}
-                  MAVEN_PASSWORD: ${{ secrets.DATAVERSEBOT_SONATYPE_TOKEN }}
-                  MAVEN_GPG_PASSPHRASE: ${{ secrets.DATAVERSEBOT_GPG_PASSWORD }}
