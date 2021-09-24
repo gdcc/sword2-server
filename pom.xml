@@ -27,6 +27,9 @@
         <fileupload.version>1.4</fileupload.version>
         <jena.version>4.2.0</jena.version>
         <slf4j.version>1.7.32</slf4j.version>
+        
+        <!-- Transitive dependency versions -->
+        <io.version>2.11.0</io.version>
     
         <!-- Official Maven Plugins -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
@@ -303,7 +306,6 @@
         </plugins>
     </build>
     
-    
     <profiles>
         <profile>
             <id>release</id>
@@ -423,6 +425,17 @@
             </build>
         </profile>
     </profiles>
+    
+    <dependencyManagement>
+        <dependencies>
+            <!-- Manage the transitive dependency for Apache Commons Fileupload to ensure security updates -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${io.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     
     <dependencies>
         <dependency>
