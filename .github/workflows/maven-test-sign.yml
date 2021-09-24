@@ -26,11 +26,13 @@ jobs:
                   path: ~/.m2
                   key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
                   restore-keys: ${{ runner.os }}-m2
-            - id: cat
-              run: cat /home/runner/.m2/settings.xml
             - name: Build, test, verify
-              run: mvn -B verify
+              run: |
+                    cat /home/runner/.m2/settings.xml
+                    mvn -B verify
             #- name: Check POM metadata for release
             #  run: mvn pomchecker:check-maven-central
             - name: Sign release
-              run: mvn -Prelease verify -DskipAnalysis -DskipUT -DskipIT
+              run: |
+                    cat /home/runner/.m2/settings.xml
+                    mvn -Prelease verify -DskipAnalysis -DskipUT -DskipIT
