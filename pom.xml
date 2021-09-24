@@ -412,6 +412,8 @@
                             <failBuildOnCVSS>7</failBuildOnCVSS>
                             <skipProvidedScope>true</skipProvidedScope>
                             <skipRuntimeScope>true</skipRuntimeScope>
+                            <!-- Use SARIF output so we can upload to Github Security tab -->
+                            <format>SARIF</format>
                             <suppressionFile>owaspSuppression.xml</suppressionFile>
                         </configuration>
                         <executions>
