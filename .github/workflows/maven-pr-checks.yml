@@ -1,0 +1,30 @@
+name: Pull Request Verification and Security Scan
+on:
+    pull_request:
+jobs:
+    verify:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                java: [11,17]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Set up Maven Central Repository
+              uses: actions/setup-java@v2
+              with:
+                  java-version: ${{ matrix.java }}
+                  distribution: 'adopt'
+            - name: Cache Maven packages
+              uses: actions/cache@v2
+              with:
+                  path: ~/.m2
+                  key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+                  restore-keys: ${{ runner.os }}-m2
+            - name: Build, test, verify
+              run: mvn -B verify -Djdk.version=${{ matrix.java }}
+            - name: Scan with OWASP
+              run: mvn -B -Powasp dependency-check:check
+            - name: Upload scan results as SARIF report to GitHub Security Tab
+              uses: github/codeql-action/upload-sarif@v1
+              with:
+                  sarif_file: target/dependency-check-report.sarif
