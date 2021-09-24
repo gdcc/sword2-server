@@ -27,7 +27,7 @@ jobs:
             #- name: Check POM metadata for release
             #  run: mvn pomchecker:check-maven-central
             - name: Sign release
-              run: mvn -Prelease package gpg:sign -DskipAnalysis -DskipUT -DskipIT
+              run: mvn -Prelease verify -DskipAnalysis -DskipUT -DskipIT
               env:
                   MAVEN_USERNAME: ${{ secrets.DATAVERSEBOT_SONATYPE_USERNAME }}
                   MAVEN_PASSWORD: ${{ secrets.DATAVERSEBOT_SONATYPE_TOKEN }}
