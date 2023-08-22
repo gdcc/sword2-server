@@ -4,7 +4,7 @@
     <groupId>io.gdcc</groupId>
     <artifactId>sword2-server</artifactId>
     <!--Leave -SNAPSHOT in the version. It will be removed by Maven Release Plugin: https://maven.apache.org/maven-release/maven-release-plugin/-->
-    <version>2.0.0-SNAPSHOT</version>
+    <version>2.0.0</version>
     <packaging>jar</packaging>
     <name>SWORD v2 Common Server Library (forked)</name>
     <description>
@@ -49,7 +49,7 @@
         <connection>scm:git:https://github.com/gdcc/${project.artifactId}.git</connection>
         <developerConnection>scm:git:git@github.com:gdcc/${project.artifactId}.git</developerConnection>
         <url>https://github.com/gdcc/${project.artifactId}</url>
-        <tag>HEAD</tag>
+        <tag>sword2-server-2.0.0</tag>
     </scm>
     <licenses>
         <license>
