@@ -28,7 +28,7 @@
         <abdera.version>1.1.3</abdera.version>
         <fileupload.version>1.5</fileupload.version>
         <jena.version>4.9.0</jena.version>
-        <slf4j.version>2.0.7</slf4j.version>
+        <slf4j.version>2.0.11</slf4j.version>
         
         <!-- Transitive dependency versions -->
         <io.version>2.13.0</io.version>
