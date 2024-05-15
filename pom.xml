@@ -42,7 +42,7 @@
         <maven-failsafe-plugin.version>3.2.5</maven-failsafe-plugin.version>
         <maven-surefire-report-plugin.version>3.0.0-M5</maven-surefire-report-plugin.version>
         <maven-gpg-plugin>3.1.0</maven-gpg-plugin>
-        <dependency-check-maven.version>9.0.9</dependency-check-maven.version>
+        <dependency-check-maven.version>9.2.0</dependency-check-maven.version>
         <pmd.version>6.55.0</pmd.version>
     </properties>
     <scm>
