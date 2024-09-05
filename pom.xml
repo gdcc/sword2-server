@@ -294,7 +294,7 @@
                 <groupId>org.kordamp.maven</groupId>
                 <artifactId>pomchecker-maven-plugin</artifactId>
                 <!-- Don't change from 1.7.0 unless Maven in GitHub runners support it. -->
-                <version>1.7.0</version>
+                <version>1.13.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
