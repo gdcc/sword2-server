@@ -31,7 +31,7 @@
         <slf4j.version>2.0.12</slf4j.version>
         
         <!-- Transitive dependency versions -->
-        <io.version>2.13.0</io.version>
+        <io.version>2.17.0</io.version>
     
         <!-- Official Maven Plugins -->
         <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
