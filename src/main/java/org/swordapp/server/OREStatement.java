@@ -54,16 +54,16 @@ public class OREStatement extends Statement {
             Resource deposit = model.createResource(od.getUri());
             deposit.addProperty(RDF.type, model.createResource(UriRegistry.ORE_NAMESPACE + "AggregatedResource"));
             if (od.getDepositedBy() != null) {
-                deposit.addLiteral(model.createProperty(UriRegistry.SWORD_DEPOSITED_BY), od.getDepositedBy());
+                deposit.addLiteral(model.createProperty(UriRegistry.SWORD_DEPOSITED_BY_URI), od.getDepositedBy());
             }
 
             if (od.getDepositedOnBehalfOf() != null) {
-                deposit.addLiteral(model.createProperty(UriRegistry.SWORD_DEPOSITED_ON_BEHALF_OF), od.getDepositedOnBehalfOf());
+                deposit.addLiteral(model.createProperty(UriRegistry.SWORD_DEPOSITED_ON_BEHALF_OF_URI), od.getDepositedOnBehalfOf());
             }
 
             if (od.getDepositedOn() != null) {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-                deposit.addLiteral(model.createProperty(UriRegistry.SWORD_DEPOSITED_ON), sdf.format(od.getDepositedOn()));
+                deposit.addLiteral(model.createProperty(UriRegistry.SWORD_DEPOSITED_ON_URI), sdf.format(od.getDepositedOn()));
             }
 
             for (String packaging : od.getPackaging()) {
@@ -71,16 +71,16 @@ public class OREStatement extends Statement {
             }
 
             agg.addProperty(model.createProperty(UriRegistry.ORE_NAMESPACE + "aggregates"), deposit);
-            agg.addProperty(model.createProperty(UriRegistry.SWORD_ORIGINAL_DEPOSIT), deposit);
+            agg.addProperty(model.createProperty(UriRegistry.SWORD_ORIGINAL_DEPOSIT_URI), deposit);
         }
 
         // now add the state information
         for (Map.Entry<String, String> state : this.states.entrySet()) {
             Resource s = model.createResource(state.getKey());
             if (state.getValue() != null) {
-                s.addProperty(model.createProperty(UriRegistry.SWORD_STATE_DESCRIPTION), state.getValue());
+                s.addProperty(model.createProperty(UriRegistry.SWORD_STATE_DESCRIPTION_URI), state.getValue());
             }
-            agg.addProperty(model.createProperty(UriRegistry.SWORD_STATE), s);
+            agg.addProperty(model.createProperty(UriRegistry.SWORD_STATE_URI), s);
         }
 
         // write the model directly to the output

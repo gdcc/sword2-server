@@ -34,12 +34,20 @@ public final class UriRegistry {
     public static final QName DC_ABSTRACT = new QName(DC_NAMESPACE, "abstract");
 
     // URIs for the statement
-    public static final String SWORD_DEPOSITED_BY = SWORD_TERMS_NAMESPACE + "depositedBy";
-    public static final String SWORD_DEPOSITED_ON_BEHALF_OF = SWORD_TERMS_NAMESPACE + "depositedOnBehalfOf";
-    public static final String SWORD_DEPOSITED_ON = SWORD_TERMS_NAMESPACE + "depositedOn";
-    public static final String SWORD_ORIGINAL_DEPOSIT = SWORD_TERMS_NAMESPACE + "originalDeposit";
-    public static final String SWORD_STATE_DESCRIPTION = SWORD_TERMS_NAMESPACE + "stateDescription";
-    public static final String SWORD_STATE = SWORD_TERMS_NAMESPACE + "state";
+    public static final String SWORD_DEPOSITED_BY_URI = SWORD_TERMS_NAMESPACE + "depositedBy";
+    public static final String SWORD_DEPOSITED_ON_BEHALF_OF_URI = SWORD_TERMS_NAMESPACE + "depositedOnBehalfOf";
+    public static final String SWORD_DEPOSITED_ON_URI = SWORD_TERMS_NAMESPACE + "depositedOn";
+    public static final String SWORD_ORIGINAL_DEPOSIT_URI = SWORD_TERMS_NAMESPACE + "originalDeposit";
+    public static final String SWORD_STATE_DESCRIPTION_URI = SWORD_TERMS_NAMESPACE + "stateDescription";
+    public static final String SWORD_STATE_URI = SWORD_TERMS_NAMESPACE + "state";
+
+    // QNames for statement elements
+    public static final QName SWORD_DEPOSITED_BY = new QName(SWORD_TERMS_NAMESPACE, "depositedBy");
+    public static final QName SWORD_DEPOSITED_ON_BEHALF_OF = new QName(SWORD_TERMS_NAMESPACE, "depositedOnBehalfOf");
+    public static final QName SWORD_DEPOSITED_ON = new QName(SWORD_TERMS_NAMESPACE, "depositedOn");
+    public static final QName SWORD_ORIGINAL_DEPOSIT = new QName(SWORD_TERMS_NAMESPACE, "originalDeposit");
+    public static final QName SWORD_STATE_DESCRIPTION = new QName(SWORD_TERMS_NAMESPACE, "stateDescription");
+    public static final QName SWORD_STATE = new QName(SWORD_TERMS_NAMESPACE, "state");
 
     // rel values
     public static final String REL_STATEMENT = "http://purl.org/net/sword/terms/statement";

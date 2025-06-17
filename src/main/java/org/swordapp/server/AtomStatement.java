@@ -87,18 +87,18 @@ public class AtomStatement extends Statement {
             if (deposit.getMediaType() != null) {
                 entry.setContent(new IRI(deposit.getUri()), deposit.getMediaType());
             }
-            entry.addCategory(UriRegistry.SWORD_TERMS_NAMESPACE, UriRegistry.SWORD_ORIGINAL_DEPOSIT, "Original Deposit");
+            entry.addCategory(UriRegistry.SWORD_TERMS_NAMESPACE, UriRegistry.SWORD_ORIGINAL_DEPOSIT_URI, "Original Deposit");
             if (deposit.getDepositedOn() != null) {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-                entry.addSimpleExtension(new QName(UriRegistry.SWORD_DEPOSITED_ON), sdf.format(deposit.getDepositedOn()));
+                entry.addSimpleExtension(UriRegistry.SWORD_DEPOSITED_ON, sdf.format(deposit.getDepositedOn()));
             }
 
             if (deposit.getDepositedOnBehalfOf() != null) {
-                entry.addSimpleExtension(new QName(UriRegistry.SWORD_DEPOSITED_ON_BEHALF_OF), deposit.getDepositedOnBehalfOf());
+                entry.addSimpleExtension(UriRegistry.SWORD_DEPOSITED_ON_BEHALF_OF, deposit.getDepositedOnBehalfOf());
             }
 
             if (deposit.getDepositedBy() != null) {
-                entry.addSimpleExtension(new QName(UriRegistry.SWORD_DEPOSITED_BY), deposit.getDepositedBy());
+                entry.addSimpleExtension(UriRegistry.SWORD_DEPOSITED_BY, deposit.getDepositedBy());
             }
 
             if (deposit.getPackaging() != null) {
@@ -110,7 +110,7 @@ public class AtomStatement extends Statement {
     
         // now at the state as a categories
         for (Map.Entry<String, String> state : this.states.entrySet()) {
-            Category cat = feed.addCategory(UriRegistry.SWORD_STATE, state.getKey(), "State");
+            Category cat = feed.addCategory(UriRegistry.SWORD_STATE_URI, state.getKey(), "State");
             if (state.getValue() != null) {
                 cat.setText(state.getValue());
             }
